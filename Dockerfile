@@ -1,4 +1,4 @@
-FROM golang:1.13.8-alpine AS BUILD
+FROM golang:1.16-alpine AS BUILD
 
 RUN apk --update add git
 
@@ -17,9 +17,6 @@ WORKDIR /tmp/rtsp-simple-proxy
 
 RUN go mod download
 RUN go build -o /go/bin/rtsp-simple-proxy .
-
-
-
 
 FROM jrottenberg/ffmpeg:4.0-alpine
 
